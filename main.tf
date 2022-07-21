@@ -75,7 +75,7 @@ resource "aws_cloudwatch_metric_alarm" "cpu_utilization_high" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "cpu_utilization_low" {
-  count               = module.this.enabled ? 1 : 0
+  count               = module.this.enabled ? 0 : 0
   alarm_name          = module.cpu_utilization_low_alarm_label.id
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.cpu_utilization_low_evaluation_periods
@@ -125,7 +125,7 @@ resource "aws_cloudwatch_metric_alarm" "memory_utilization_high" {
 }
 
 resource "aws_cloudwatch_metric_alarm" "memory_utilization_low" {
-  count               = module.this.enabled ? 1 : 0
+  count               = module.this.enabled ? 0 : 0
   alarm_name          = module.memory_utilization_low_alarm_label.id
   comparison_operator = "LessThanThreshold"
   evaluation_periods  = var.memory_utilization_low_evaluation_periods
